@@ -14,3 +14,4 @@ jobs:
         ftp-server: ftp://ftp.w2csolutions.com/
         ftp-username: 812762grMUVs
         ftp-password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: build/
