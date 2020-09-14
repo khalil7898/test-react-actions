@@ -1,5 +1,5 @@
 on: push
-name: Build and Publish Front End Framework Website
+name: Publish Website with FTP
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
@@ -8,24 +8,9 @@ jobs:
     - uses: actions/checkout@v2.1.0
       with:
         fetch-depth: 2
-
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-        
-    - name: Build Project
-      run: |
-        npm install
-        npm run build --if-present
-        
-    - name: List output files
-      run: ls
-      
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        ftp-server: ftp://ftp.w2csolutions.com/
-        ftp-username: 812762grMUVs
+        ftp-server: ftp://ftp.samkirkland.com/
+        ftp-username: myFtpUserName
         ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: build #
